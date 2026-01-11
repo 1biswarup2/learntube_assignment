@@ -27,43 +27,58 @@ The project is built as part of a Spec-to-Assessment Workflow Generator assignme
 - This is not a large product, but a focused system design + execution exercise.
 
 # 🧠 High-level Architecture
-Requirement JSON
-      ↓
-Requirement Analyst Agent
-      ↓
-Schema Architect Agent
-      ↓
-Assessment / Activity Designer Agent
-      ↓
-QA / Risk Agent
-      ↓
-CLI Demo → Dataset Export (JSONL)
+- Requirement JSON
+-       ↓
+- Requirement Analyst Agent
+-       ↓
+- Schema Architect Agent
+-       ↓
+- Assessment / Activity Designer Agent
+-       ↓
+- QA / Risk Agent
+-       ↓
+- CLI Demo → Dataset Export (JSONL)
 
 
 ## Each agent produces structured outputs, which are persisted as artifacts.
 
-📁 Repository Structure
-learntube_assignment/
-├── src/
-│   ├── agents/
-│   │   ├── requirement_analyst.py
-│   │   ├── schema_architect.py
-│   │   ├── activity_designer.py
-│   │   └── qa_agent.py
-│   ├── artifact_writer.py
-│   ├── orchestrator.py
-│   └── demo.py
-├── requirements/
-│   └── phishing_requirement.json
-├── artifacts/
-│   ├── questions.md
-│   ├── workflow.md
-│   └── qa_plan.md
-├── export/
-│   └── dataset.jsonl
-├── README.md
-└── .gitignore
+# 📁 Repository Structure (Overview)
 
+- src/ contains all the application code.
+
+- src/agents/ contains individual agent implementations:
+
+- 1. requirement_analyst.py generates clarifying questions and assumptions.
+
+- 2. schema_architect.py creates the dataset schema.
+
+- 3. activity_designer.py designs the learner-facing workflow and rubric.
+
+- 4. qa_agent.py defines quality checks and risk controls.
+
+-  artifact_writer.py writes agent outputs to markdown files.
+
+-  orchestrator.py runs all agents in sequence and manages handoffs.
+
+-  demo.py is the runnable CLI demo that executes the full pipeline.
+
+- requirements/ stores input requirement JSON files.
+
+phishing_requirement.json is the primary example requirement used in the demo ( was given in ML assignment document provided as option 1 )
+
+- artifacts/ contains generated specification documents:
+
+- 1. questions.md for clarifying questions and assumptions.
+
+- 2. workflow.md for the activity flow and rubric.
+
+- 3. qa_plan.md for the quality control plan.
+
+- export/ contains generated dataset outputs.
+
+- dataset.jsonl stores records collected from demo runs.
+
+- README.md explains the project, setup, and how to run the demo.
 # ⚙️ Setup Instructions
 ## 1️⃣ Prerequisites
 
