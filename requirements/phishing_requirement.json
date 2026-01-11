@@ -1,0 +1,41 @@
+{
+ "project_name": "Cyber_Phishing_Triage_v1",
+ "domain": "Cybersecurity",
+ "task_type": "scenario_classification_with_rationale",
+ "goal": "Capture how a learner identifies phishing or unsafe messages and proposes safe next steps.",
+ "inputs": {
+ "scenario_format": "short_email_or_chat_message",
+ "max_tokens": 220
+ },
+ "outputs_needed": [
+ "risk_level",
+ "is_phishing",
+ "evidence_spans",
+ "recommended_actions",
+ "short_rationale",
+ "rubric_grade",
+ "error_tags"
+ ],
+ "label_spaces": {
+ "risk_level": ["low", "medium", "high"],
+ "error_tags": [
+ "missed_urgency_cue",
+ "missed_sender_spoof",
+ "unsafe_action_suggested",
+ "overconfident_claim",
+ "insufficient_evidence"
+ ]
+ },
+ "constraints": {
+ "no_pii": true,
+ "english_only": true,
+ "max_time_per_task_minutes": 6,
+ "mobile_friendly": true
+ },
+ "quality_bar": {
+ "gold_set_size": 20,
+ "consistency_required": true,
+ "review_mode": "spot_check_10_percent"
+ },
+ "volume_target": { "records": 200 }
+}
